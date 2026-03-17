@@ -7,7 +7,7 @@
             rel="stylesheet" 
             integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" 
             crossorigin="anonymous">
-            
+
             {% load static %}
             <link rel="stylesheet" href="{% static 'quotes/style.css' %}">
 
@@ -15,7 +15,7 @@
 </head>
 <body>
     <div class="container">
-        <div class="row header-box">
+        <div class="row header-box pt-3"> 
             <div class="col-md-8">
                 <h1>
                     <a href="/" style="text-decoration: none">Quotes to Scrape</a>
@@ -24,7 +24,9 @@
             <div class="col-md-4">
                 <p>
                 
-                    <a href="/login">Login</a>
+                    <a href="/login" class="btn btn-primary">Login</a>
+                    <a href="/login" class="btn btn-primary">Logout</a>
+                    <a href="/login" class="btn btn-primary">Registration</a>
                 
                 </p>
             </div>
