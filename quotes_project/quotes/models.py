@@ -1,6 +1,6 @@
 from django.db import models
 
-# Create your models here.
+
 class Author(models.Model):
     full_name = models.CharField(max_length=100)
     born_date = models.CharField(max_length=100)
@@ -8,7 +8,7 @@ class Author(models.Model):
     description = models.TextField()
 
     def __str__(self):
-        return self.fullname
+        return self.full_name
 
     
 class Tag(models.Model):
