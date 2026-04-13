@@ -4,7 +4,7 @@ from django.core.paginator import Paginator
 
 
 def main(request):
-    quote_list = Quote.objects.all()
+    quote_list = Quote.objects.all().order_by('-id')
     paginator = Paginator(quote_list, 5)
     page_num = request.GET.get("page")
     page_obj = paginator.get_page(page_num)

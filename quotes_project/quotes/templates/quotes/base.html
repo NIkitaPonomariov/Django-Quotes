@@ -3,7 +3,17 @@
 <head>
 </head>
 <body>
+{% if user.is_authenticated %}
 
+    <form action="/accounts/logout/" method="post" style="display:inline;">
+    {% csrf_token %}
+    <button type="submit">Logout</button>
+   
+{% else %}
+    <a href="/accounts/login/">Login</a>
+
+
+{% endif %}
     <hr>
 
     {% block content %}
