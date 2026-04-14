@@ -18,7 +18,21 @@ def add_author(request):
     return render(request, 'quotes/home.html')
 
 def add_quote(request):
-    return render(request, 'quotes/home.html')
+    if request.method == "POST":
+        text = request.POST.get("text")
+        author_id = request.POST.get("author")
+
+        author = Author.objects.get(id=author_id)
+
+        Quote.objects.create(
+            text=text,
+            author=author
+        )
+
+    authors = Author.objects.all()
+
+    return render(request, 'quotes/add_quote.html', {"authors": authors})
+
 
 def add_tag(request):
     return render(request, 'quotes/home.html')
