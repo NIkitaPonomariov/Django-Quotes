@@ -20,7 +20,11 @@
         </p>
     </div>
 {% endfor %}
-
+    <p>
+    <a href="/add_author/">Add Author</a> |
+    <a href="/add_quote/">Add Quote</a> |
+    <a href="/add_tag/">Add Tag</a>
+</p>
 <div>
     {% if page_obj.has_previous %}
         <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
