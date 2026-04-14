@@ -1,0 +1,15 @@
+{% extends "quotes_app/base.html"%}
+
+{% block content %}
+<h1>Quotes to Scrape</h1>
+
+{% for quote in quotes%}
+    <p>{{quote.text}}</p>
+    <p>{{quote.author}}</p>
+    
+    {% for tag in quote.tags.all%}
+        {{ tag }}
+    {% endfor %}
+{% endfor %}
+
+{% endblock %}
