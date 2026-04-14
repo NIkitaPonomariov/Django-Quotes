@@ -11,3 +11,17 @@
   color: white;
   font-size: small;
   background-color: #7CA3E6;}
+
+h1, .h1 {
+  font-size: 41px;
+}
+h1, .h1, h2, .h2, h3, .h3 {
+  margin-top: 22px;
+  margin-bottom: 11px;
+}
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: "Raleway","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-weight: bold;
+  line-height: 1.1;
+  color: inherit;
+}
