@@ -1,5 +1,12 @@
 {% extends "quotes_app/base.html"%}
 
 {% block content %}
+    {% for quote in quotes %}
+        {{ quote.text }}
 
+        {% for tag in quote.tags.all %}
+            {{ tag.name }}
+        {% endfor %}
+        
+    {% endfor %}
 {% endblock %}
