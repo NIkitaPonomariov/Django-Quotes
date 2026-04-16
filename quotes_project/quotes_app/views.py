@@ -9,3 +9,7 @@ def main(request):
     #firs we need get all values from db
     quotes = Quote.objects.all()
     return render(request, 'quotes_app/main.html',  {"quotes":quotes})
+
+
+def author_page(request, author_id):
+    return render(...) # here code tomorrow!
