@@ -22,3 +22,14 @@ def register(request):
         return redirect('login')
 
     return render(request, 'quotes_app/register.html', {'form': form})
+
+
+
+def add_():
+    pass
+
+def add_():
+    pass
+
+def add_():
+    pass 
