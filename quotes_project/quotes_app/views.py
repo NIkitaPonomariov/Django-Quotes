@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
-from .models import Quote
+from .models import Quote, Author
 
 
 
@@ -11,5 +11,6 @@ def main(request):
     return render(request, 'quotes_app/main.html',  {"quotes":quotes})
 
 
-def author_page(request, author_id):
-    return render(...) # here code tomorrow!
+def about_author(request, author_id):
+    author = Author.objects.get(id=author_id)
+    return render(request, 'quotes_app/about.html', {"author":author})
