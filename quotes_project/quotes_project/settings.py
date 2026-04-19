@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'quotes_app',
-    'users',
 ]
 
 MIDDLEWARE = [
@@ -77,9 +76,9 @@ WSGI_APPLICATION = 'quotes_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'quotes_db',
-        'USER': 'quotes_user',
-        'PASSWORD': '1234',
+        'NAME': 'quotesdata',
+        'USER': 'admin',
+        'PASSWORD': '12345',
         'HOST': 'localhost',
         'PORT': '5432',
     }
@@ -122,5 +121,3 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 LOGIN_REDIRECT_URL = '/'
-
-AUTH_USER_MODEL = 'users.CustomUser'
