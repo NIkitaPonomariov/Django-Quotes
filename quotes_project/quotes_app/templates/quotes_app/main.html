@@ -20,24 +20,36 @@
         </div>
     
 
+
 <div class="row">
     <div class="col-md-5 ps-5">
 
-    <div class="quote" itemscope="" itemtype="http://schema.org/CreativeWork">
-        <span class="text" itemprop="text">“The world as we have created it is a process of our thinking. It cannot be changed without changing our thinking.”</span>
-        <span>by <small class="author" itemprop="author">Albert Einstein</small>
-        <a href="/author/Albert-Einstein">(about)</a>
-        </span>
+        {% for quote in quotes %}
+            <div class="quote">
+                <span class="text">{{ quote.text }}</span>
+                <span>
+                    by <small class="author">{{ quote.author }}</small>
+                </span>
 
-        <div class="tags">
-            Tags:
-            <meta class="keywords" itemprop="keywords" content="change,deep-thoughts,thinking,world"> 
-            
-            <a class="tag" href="/tag/change/page/1/">change</a>
-            
-        </div>
+                
+                <div class="tags">
+                    Tags:
+                    {% for tag in quote.tags.all %}
+                        <a class="tag md-5" href="/tag/{{ tag.tag}}/">
+                            {{ tag.tag }}
+                        </a>
+                    {% endfor %}
+                </div>
+
+            </div>
+        {% endfor %}
+
     </div>
+</div>
 
+
+    </div>
+</div>
     <nav>
         <ul class="pager">
             
