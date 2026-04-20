@@ -1,0 +1,51 @@
+.quote {
+	padding: 10px;
+	margin-bottom: 30px;
+	border: 1px solid #333333;
+	border-radius: 5px;
+	box-shadow: 2px 2px 3px #333333;
+}
+.tag {
+	padding: 2px 5px;
+	border-radius: 5px;
+	color: white;
+	font-size: small;
+	background-color: #7CA3E6;
+}
+.quote span.text {
+	display: block;
+	margin-bottom: 5px;
+	font-size: large;
+	font-style: italic;
+}
+body {
+	margin-bottom: 60px;
+}
+body {
+  font-family: Georgia,"Times New Roman",Times,serif;
+  font-size: 16px;
+  line-height: 1.42857143;
+  color: #333333;
+  background-color: #ffffff;
+}
+quote small.author {
+  font-weight: bold;
+  color: #3677E8;
+}
+a {
+  color: #4582ec;
+  text-decoration: none;
+}
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.header-box {
+  padding-bottom: 40px;
+}
+.row {
+  margin-left: -15px;
+  margin-right: -15px;
+}
