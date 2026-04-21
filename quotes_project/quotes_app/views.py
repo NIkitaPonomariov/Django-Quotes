@@ -27,12 +27,12 @@ def register(request):
     form = UserCreationForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('login')
+        return redirect('quotes_app:login')
 
     return render(request, 'quotes_app/register.html', {'form': form})
 
 
-
+@login_required
 def add_quote(request):
     if request.method == "POST":
         form = QuoteForm(request.POST)

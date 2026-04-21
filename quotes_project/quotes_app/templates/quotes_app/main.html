@@ -10,15 +10,33 @@
             </div>
             <div class="col-md-4">
                 <p>
+                    
                     <div class="d-flex gap-2 mt-3">
-                        <button type="button" class="btn btn-primary">login</button>
-                        <button type="button" class="btn btn-primary">SignUP</button>
-                        <button type="button" class="btn btn-primary">logout</button>
+                        {% if user.is_authenticated %}
+                            <form method="post" action="{% url 'quotes_app:logout' %}">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-primary">Logout</button>
+                            </form>
+                        {% else %}
+                            <a href="{% url 'quotes_app:login' %}" class="btn btn-primary">
+                                Login
+                            </a>
+                            <a href="{% url 'quotes_app:register' %}" class="btn btn-primary">
+                                Sign Up
+                            </a>
+                        {% endif %}
                     </div>
                 </p>
             </div>
         </div>
     
+{% if user.is_authenticated%}
+<div class="add-buttons">
+    <a href="{% url 'quotes_app:quote' %}" class="btn btn-primary">
+        Add quote
+    </a>
+</div>
+{% endif %}
 
 
 <div class="row">
