@@ -58,3 +58,25 @@ a {
 	background-color: #5a8bd6;
 	cursor: pointer;
 }
+
+.pager li {
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.pager li a,
+.pager li span {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.pager li.active a {
+    background-color: #4582ec;
+    color: white;
+}
+
+.pager li.disabled span {
+    color: #aaa;
+    border-color: #eee;
+}

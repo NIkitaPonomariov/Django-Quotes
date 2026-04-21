@@ -4,10 +4,17 @@ from django.core.paginator import Paginator
 from .models import Quote, Author
 from django.contrib.auth.forms import UserCreationForm
 
+
 def main(request):
     #firs we need get all values from db
-    quotes = Quote.objects.all()
-    return render(request, 'quotes_app/main.html',  {"quotes":quotes})
+    posts = Quote.objects.all()
+    per_page = 10
+    paginator = Paginator(posts, per_page)
+
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    
+    return render(request, 'quotes_app/main.html',  {"page_obj":page_obj})
 
 
 def about_author(request, author_id):
