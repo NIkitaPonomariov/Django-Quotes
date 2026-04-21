@@ -30,10 +30,21 @@
             </div>
         </div>
     
+
 {% if user.is_authenticated%}
 <div class="add-buttons">
     <a href="{% url 'quotes_app:quote' %}" class="btn btn-primary">
         Add quote
+    </a>
+</div>
+<div class="add-buttons">
+    <a href="{% url 'quotes_app:tag' %}" class="btn btn-primary">
+        Add tag
+    </a>
+</div>
+<div class="add-buttons">
+    <a href="{% url 'quotes_app:author' %}" class="btn btn-primary">
+        Add author
     </a>
 </div>
 {% endif %}
@@ -47,6 +58,7 @@
                 <span class="text">{{ quote.text }}</span>
                 <span>
                     by <small class="author">{{ quote.author }}</small>
+                    <a href="{% url "quotes_app:about" quote.author.id %}">about</a>
                 </span>
 
                 
