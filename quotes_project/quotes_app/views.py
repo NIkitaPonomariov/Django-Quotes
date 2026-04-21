@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from .models import Quote, Author
 from django.contrib.auth.forms import UserCreationForm
+from .forms import QuoteForm
 
 
 def main(request):
@@ -32,8 +33,18 @@ def register(request):
 
 
 
-def add_():
-    pass
+def add_quote(request):
+    if request.method == "POST":
+        form = QuoteForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+    else:
+        form = QuoteForm()
+
+    return render(request, "quotes_app/quote.html", {"form": form})
+
 
 def add_():
     pass
