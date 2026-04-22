@@ -128,7 +128,7 @@ def scrape_data_from_cite(request):
             )
 
             for tag_name in q["tags"]:
-                tag, _ = Tag.objects.get_or_create(name=tag_name)
+                tag, _ = Tag.objects.get_or_create(tag=tag_name)
                 quote.tags.add(tag)
     #send message 
     messages.success(request, "Scraping completed!")

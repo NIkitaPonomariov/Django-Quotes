@@ -1,3 +1,4 @@
+--------------------------------------
 pagination ✅
 login logout registration ✅
 add author (only for logined users)✅
@@ -6,5 +7,5 @@ add quote (only for logined users)✅
 authors page✅
 tags searching✅
 top ten tags block✅
+and last scrape data from quotesfor aqrape✅
 ---------------------------------------
-and last scrape data from quotesfor aqrape
