@@ -9,7 +9,7 @@
                 </h1>
             </div>
             <div class="col-md-4">
-                <p>
+                
                     
                     <div class="d-flex gap-2 mt-3">
                         {% if user.is_authenticated %}
@@ -26,23 +26,22 @@
                             </a>
                         {% endif %}
                     </div>
-                </p>
+                
             </div>
         </div>
     
 
 {% if user.is_authenticated%}
-<div class="add-buttons">
+
+<div class="add-buttons mt-1" style="position: relative; top: -40px; left: 30px;">
     <a href="{% url 'quotes_app:quote' %}" class="btn btn-primary">
         Add quote
     </a>
-</div>
-<div class="add-buttons">
+
     <a href="{% url 'quotes_app:tag' %}" class="btn btn-primary">
         Add tag
     </a>
-</div>
-<div class="add-buttons">
+
     <a href="{% url 'quotes_app:author' %}" class="btn btn-primary">
         Add author
     </a>
@@ -58,7 +57,7 @@
                 <span class="text">{{ quote.text }}</span>
                 <span>
                     by <small class="author">{{ quote.author }}</small>
-                    <a href="{% url "quotes_app:about" quote.author.id %}">about</a>
+                    <a href="{% url "quotes_app:about" quote.author.id %}">(about)</a>
                 </span>
 
                 
@@ -74,10 +73,20 @@
             </div>
         {% endfor %}
 
+    </div>    
+    <div class="col-md-4 ps-5">
+        <h2>Top Ten tags</h2>
+        <span class="tag-item">
+            {% for tag in top_tags %}
+                <div class="tag-item">
+                    <a class="tag" style="font-size: {{ tag.num_quotes|add:3 }}px" href="/tag/{{ tag.tag }}/">
+                        {{ tag.tag }} ({{ tag.num_quotes }})
+                    </a>
+                </div>
+            {% endfor %}
+        </span>
     </div>
 </div>
-
-
     </div>
 </div>
     <nav>
@@ -93,7 +102,7 @@
             <li class="next">
                 {% if page_obj.has_next %}
                     <a href="?page={{ page_obj.next_page_number }}">
-                        Next <span aria-hidden="true">→</span>
+                        Next 
                     </a>
                 {% endif %}
             </li>

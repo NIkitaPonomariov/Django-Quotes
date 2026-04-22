@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
-from .models import Quote, Author
+from .models import Quote, Author, Tag
 from django.contrib.auth.forms import UserCreationForm
 from .forms import QuoteForm, TagForm, AuthorForm
+from django.db.models import Count
 
 
 def main(request):
@@ -14,8 +15,19 @@ def main(request):
 
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
+
+    top_ten_tags = (
+        Tag.objects
+        .annotate(num_quotes=Count('quote'))
+        .order_by('-num_quotes')[:10]
+        )
     
-    return render(request, 'quotes_app/main.html',  {"page_obj":page_obj})
+    return render(
+        request, 
+        'quotes_app/main.html',  
+        {"page_obj":page_obj,
+         "top_tags": top_ten_tags}
+        )
 
 
 def about_author(request, author_id):
