@@ -30,11 +30,50 @@
         </div>
 
 
-{% for quote in quotes_with_tag %}
-    <div>
-        <p>{{ quote.text }}</p>
-    </div>
-{% empty %}
-    <p>No quotes found.</p>
-{% endfor %}
-{% endblock %}
+
+<div class="row">
+    <div class="col-md-5 ps-5">
+
+        {% for quote in quotes_with_tag %}
+            <div class="quote">
+                <span class="text">{{ quote.text }}</span>
+                <span>
+                    by <small class="author">{{ quote.author }}</small>
+                    <a href="{% url "quotes_app:about" quote.author.id %}">about</a>
+                </span>
+
+                
+                <div class="tags">
+                    Tags:
+                    {% for tag in quote.tags.all %}
+                        <a class="tag md-5" href="/tag/{{ tag.tag}}/">
+                            {{ tag.tag }}
+                        </a>
+                    {% endfor %}
+                </div>
+
+            </div>
+        {% endfor %}
+
+         <nav>
+       <ul class="pager">
+
+            <li class="previous">
+                {% if page_obj.has_previous %}
+                    <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                {% endif %}
+            </li>
+
+
+            <li class="next">
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">
+                        Next <span aria-hidden="true">→</span>
+                    </a>
+                {% endif %}
+            </li>
+
+        </ul>
+    </nav>
+
+    {% endblock %}
