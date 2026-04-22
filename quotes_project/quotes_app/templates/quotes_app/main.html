@@ -45,6 +45,15 @@
     <a href="{% url 'quotes_app:author' %}" class="btn btn-primary">
         Add author
     </a>
+
+
+    <form action="{% url 'quotes_app:scrape' %}" method="post" style="display:inline;">
+        {% csrf_token %}
+            <button type="submit" class="btn btn-primary">
+                add new data
+            </button>
+    </form>
+         
 </div>
 {% endif %}
 
@@ -112,5 +121,12 @@
     </div>
 </div>
 
-    
+{% if messages %}
+    {% for message in messages %}
+        <script>
+            alert("{{ message }}");
+        </script>
+    {% endfor %}
+{% endif %}
+
 {% endblock %}

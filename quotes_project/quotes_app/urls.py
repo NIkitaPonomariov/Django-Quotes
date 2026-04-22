@@ -19,5 +19,8 @@ urlpatterns = [
     path('author/', views.add_author, name='author'),
 
     #by tag
-    path('tag/<str:tag>/', views.by_tag, name='by_tag')
+    path('tag/<str:tag>/', views.by_tag, name='by_tag'),
+
+    #scrape data from base url
+    path('scrape/', views.scrape_data_from_cite, name="scrape")
 ]
