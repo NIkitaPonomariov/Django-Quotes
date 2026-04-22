@@ -45,7 +45,7 @@ def add_quote(request):
 
     return render(request, "quotes_app/quote.html", {"form": form})
 
-
+@login_required
 def add_tag(request):
     if request.method == "POST":
         form = TagForm(request.POST)
@@ -58,7 +58,7 @@ def add_tag(request):
     
     return render(request, "quotes_app/tag.html", {"form":form})
     
-
+@login_required
 def add_author(request):
     if request.method == "POST":
         form = AuthorForm(request.POST)
@@ -70,3 +70,14 @@ def add_author(request):
         form = AuthorForm()
     
     return render(request, "quotes_app/author.html", {"form":form})
+
+
+
+def by_tag(request, tag):
+    quotes_with_tag = Quote.objects.filter(tags__tag=tag)
+
+    return render(
+        request,
+        "quotes_app/by_tag.html",
+        context={"quotes_with_tag": quotes_with_tag, "tag_id": tag}
+    )

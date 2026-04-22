@@ -1,0 +1,40 @@
+{% extends "quotes_app/base.html"%}
+
+{% block content %}
+        <div class="row header-box">
+            <div class="col-md-8 ps-5 mt-3">
+                <h1>
+                    <a href="/" style="text-decoration: none">Quotes with tag: {{ tag }}</a>
+                </h1>
+            </div>
+            <div class="col-md-4">
+                <p>
+                    
+                    <div class="d-flex gap-2 mt-3">
+                        {% if user.is_authenticated %}
+                            <form method="post" action="{% url 'quotes_app:logout' %}">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-primary">Logout</button>
+                            </form>
+                        {% else %}
+                            <a href="{% url 'quotes_app:login' %}" class="btn btn-primary">
+                                Login
+                            </a>
+                            <a href="{% url 'quotes_app:register' %}" class="btn btn-primary">
+                                Sign Up
+                            </a>
+                        {% endif %}
+                    </div>
+                </p>
+            </div>
+        </div>
+
+
+{% for quote in quotes_with_tag %}
+    <div>
+        <p>{{ quote.text }}</p>
+    </div>
+{% empty %}
+    <p>No quotes found.</p>
+{% endfor %}
+{% endblock %}

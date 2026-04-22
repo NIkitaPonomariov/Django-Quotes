@@ -17,4 +17,7 @@ urlpatterns = [
     path('quote/', views.add_quote, name='quote'),
     path('tag/', views.add_tag, name='tag'),
     path('author/', views.add_author, name='author'),
+
+    #by tag
+    path('tag/<str:tag>/', views.by_tag, name='by_tag')
 ]
