@@ -9,6 +9,8 @@ readme = "README.md"
 python = "^3.12"
 django = "^6.0.4"
 psycopg2-binary = "^2.9.11"
+requests = "^2.33.1"
+bs4 = "^0.0.2"
 
 
 [build-system]
