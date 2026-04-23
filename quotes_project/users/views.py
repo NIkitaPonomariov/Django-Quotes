@@ -1,3 +1,9 @@
 from django.shortcuts import render
+from .forms import CustomRegisterForm
 
-# Create your views here.
+
+
+form_class = CustomRegisterForm
+
+def get(request):
+    ...
