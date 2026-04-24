@@ -1,9 +1,42 @@
 {% extends "quotes_app/base.html" %}
 
 {% block content %}
+
+
+{% if form.errors and form.non_field_errors %}
+<div class="alert alert-danger" role="alert">
+    {{form.non_field_errors}}
+</div>
+{% endif %}
 <form method="post">
     {% csrf_token %}
-    {{ form }}
-    <button type="submit">Register</button>
+    <div class="mb-3">
+        <label class="form-label">Username
+            {{form.username}}
+        </label>
+        <span>{{form.errors.username}}</span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Email
+            {{form.email}}
+        </label>
+        <span>{{form.errors.email}}</span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Password
+            {{form.password1}}
+        </label>
+        <span>{{form.errors.password1}}</span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Repeat password
+            {{form.password2}}
+        </label>
+        <span>{{form.errors.password2}}</span>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="reset" class="btn btn-secondary">Reset</button>
 </form>
 {% endblock %}
+
+
